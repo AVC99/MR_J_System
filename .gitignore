@@ -1,5 +1,18 @@
 # Prerequisites
 *.d
+#IGNORE ALL 
+*
+#UNIGNORE ALL WITH EXTENSIONS
+!*.*
+#UNIGNORE DIRECTORIES 
+!*/
+!Makefile
+
+*.o
+*.tar
+*.tar.gz
+*.vscode
+.DS_Store
 
 # Object files
 *.o
