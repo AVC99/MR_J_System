@@ -1,9 +1,10 @@
 #define _GNU_SOURCE
 #include <stdio.h>
-#include <string.h>
-#include "../struct_definitions.h"
-#include <unistd.h>
 #include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+
+#include "../struct_definitions.h"
 
 void printToConsole(char *x) {
     write(1, x, strlen(x));
@@ -40,13 +41,14 @@ char *readUntil(char del, int fd) {
 
     return chain;
 }
+
 void validateString(char *str) {
     if (strchr(str, '&') != NULL) {
         printError("WARNING: String containts &\n");
         char *newStr = malloc((strlen(str) + 1) * sizeof(char));
-        int j = 0; 
-        for (size_t i =0; i< strlen(str); i++){
-            if (str[i] != '&'){
+        int j = 0;
+        for (size_t i = 0; i < strlen(str); i++) {
+            if (str[i] != '&') {
                 newStr[j] = str[i];
                 j++;
             }
@@ -57,6 +59,7 @@ void validateString(char *str) {
         free(newStr);
     }
 }
+
 void printArray(char *array) {
     printToConsole("Printing array\n");
     char *buffer;
